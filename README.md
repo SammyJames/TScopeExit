@@ -2,7 +2,13 @@
 A simple scope based, clean up template
 
 ```
-  TScopeExit OnExit( [&]() {
-	  lua_settop( **this, 0 );
-	} );
+static int DoWork() 
+{
+   TScopeExit OnExit( [&]() {
+       // this will be called after we return.
+    } );
+	
+    int i = 0;
+    return ++i;
+}
 ```
